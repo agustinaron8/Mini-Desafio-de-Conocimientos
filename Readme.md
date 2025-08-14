@@ -251,3 +251,27 @@ class NoDocente(Usuario):
         super()._init_(id, nombre)
         self.tipoUsuario = tipoUsuario
 ```
+
+## 📊 Bases de Datos Relacionales vs. No Relacionales:
+### ¿Cuáles son las principales diferencias entre las bases de datos relacionales y no relacionales? ¿Qué criterios tomarías para definir qué tipo de base de datos era la más adecuada y por qué? Dado este caso: “logs de eventos + reportes transaccionales”, ¿qué elegís y por qué?
+
+La principal diferencia se encuentra en la estructura, SQL (estructuradas) se basa en tablas con filas y columnas mientras que las NoSQL permiten otras formas de guardar la información como clave-valor o grafos, esto deriva en no poder almacenar todo tipo de dato en una Base de Datos SQL, como por ejemplo una imagen, pero si en una NoSQL, brindando a esta última un esquema más flexible.
+En las transacciones, SQL garantiza ACID(Atómica, Consistente, Íntegra y Durable), mientras que NoSQL no.
+La forma de escalar la Base de Datos también es distinta, en SQL necesitamos escalar verticalmente mejorando el servidor, y en NoSQL se puede escalar horizontalmente agregando nodos.
+
+Para elegir una base de datos, tendría en cuenta.
+- La estructura de datos y relaciones (+ estructurado -> SQL)
+- Escalabilidad: NoSQL puede ser más útiles si a futuro puedo tener grandes volúmenes de datos o datos cambiantes.
+- Transacciones críticas: Cuando se requiere de integridad, SQL con transacciones ACID es mejor opción.
+- Consultas que voy a necesitar: SQL es más útil para consultas complejas.
+- Costo: SQL puede ser más costoso por su forma de escalar verticalmente.
+
+Con logs de eventos + reportes transaccionales:
+
+Los logs de eventos son datos que llegan en gran volumen y necesitan de una estructura flexible, por lo que para ellos sería mejor usar una Base de Datos No Relacional.
+
+Para los reportes transaccionales, que necesitan consistencia e integridad, usaría una Base de Datos Relacional.
+
+Entonces, de ser posible usaría un esquema híbrido:
+- NoSQL para logs de eventos.
+- SQL para reportes transaccionales.

@@ -28,6 +28,8 @@ Suelo utilizar en mis proyectos bloques de tipo try-catch, el primero contiene e
 Por ejemplo, para la asignatura Diseño de Aplicaciones con Objetos (Python), el Trabajo Práctico Integrador constaba de desarrollar un sistema de gestión para una librería: En su módulo de gestión de préstamos, cada operación sobre la base de datos (registrar un préstamo o devolución, calcular un interes por demora) estaba inserta dentro de un bloque try-except en este caso, ya que Python provee esa sintaxis.
 Este manejo de excepciones mejora la robustez ya que vuelve a la aplicación resiliente ante fallos, permitiendo que siga operando, por ejemplo, si al registrar un préstamo, por algún motivo no se encontraba el libro en la base de datos o había un error con la cantidad de ejemplares disponibles, el sistema revertía los cambios (rollback) y notificaba el problema sin realizar modificaciones indebidas en el stock. 
 
+Fragmento de código:
+
 ```python
 def registrar(
         self,
@@ -98,4 +100,90 @@ def registrar(
             print(f"Error al registrar el préstamo: {e}")
             self.db.get_connection().rollback()
             return False
+```
+
+## 🌐Patrones de Diseño:
+¿Podrías mencionar y describir brevemente dos patrones de diseño de software que
+hayas utilizado en tus proyectos? ¿Cómo contribuyeron estos patrones a la eficiencia o
+mantenibilidad del código?
+
+En el Trabajo Práctico recién mencionado, utilicé el patrón singleton para asegurar el acceso a una única instancia de base de datos y para las interfaces gráficas que mostraban cada módulo, este patrón ayudó a lograr clase cohesivas, con responsabilidades simples y claras.
+
+También el utilicé el patrón Factory para la creación de los distintos tipos de usuario (alumno y profesor), que contenían características comunes, permitiendo la extensión futura de distintos tipos de usuarios escalando horizontalmente a la altura de las subclases actuales Profesor y Estudiante, reutilizando el código de la clase plantilla Usuario.
+
+Además de estos patrones estructurales, conozco patrones de comportamiento como pueden ser Strategy o State, que favorecen la delegación de responsabilidades y el bajo acoplamiento de las clases del sistema.
+
+## ️ Interfaces en Programación:
+Explícanos qué es una interfaz en programación y proporciona un ejemplo de cómo y
+cuándo usarías una en un proyecto. Mostrá una firma de interfaz (código breve) y un
+caso de sustitución.
+
+Una interfaz funciona a modo de contrato, establece (sin dar implementación) el conjunto de métodos que una clase debe implementar para realizarla. Con ella garantizamos que estas clases "realizadoras" de la interfaz compartan cierta funcionalidad(pudiendo implementarlas de distinto modo internamente), permitiendo el polimorfismo en función de las solicitudes concretas que tenga la interfaz en tiempo de ejecución.
+Ayudan a desacoplar el código y que sea más simple de mantener.
+
+Usaría una interfaz por ejemplo aplicando el patrón Strategy, en una situación en la que tenga que resolver de distintas formas una situación.
+Me gusta mucho el fútbol y es uno de mis hobbies, así que voy con un ejemplo de ese tipo:
+
+En el fútbol europeo, se otorga la bota de oro de una temporada al jugador que sume más puntos en función del siguiente cálculo:
+
+```
+Coeficiente de la liga * goles anotados
+
+siendo el coeficiente distinto según el nivel de la liga:
+Una liga de 1er orden tiene un multiplicador x2.
+Una de 2do orden tiene un multiplicador x1,5.
+Una de 3er orden tiene un multiplicador x1.
+```
+La interfaz del ejemplo podría verse así en JAVA:
+``` Java
+public interface CalculadorPuntos {
+    double calcularPuntos(int goles);
+}
+```
+Y sus implementaciones:
+``` Java
+public class LigaPrimerOrden implements CalculadorPuntos {
+    @Override
+    public double calcularPuntos(int goles) {
+        return goles * 2.0;
+    }
+}
+
+public class LigaSegundoOrden implements CalculadorPuntos {
+    @Override
+    public double calcularPuntos(int goles) {
+        return goles * 1.5;
+    }
+}
+
+public class LigaTercerOrden implements CalculadorPuntos {
+    @Override
+    public double calcularPuntos(int goles) {
+        return goles * 1.0;
+    }
+}
+```
+Y un caso de sustitución:
+``` Java
+public class Jugador {
+    private String nombre;
+    private CalculadorPuntos calculador;
+
+    public Jugador(String nombre, CalculadorPuntos calculador) {
+        this.nombre = nombre;
+        this.calculador = calculador;
+    }
+
+    public void mostrarPuntos(int goles) {
+        System.out.println(nombre + " tiene " + calculador.calcularPuntos(goles) + " puntos.");
+    }
+
+    public static void main(String[] args) {
+        Jugador messi = new Jugador("Messi", new LigaPrimerOrden());
+        Jugador ronaldo = new Jugador("Ronaldo", new LigaSegundoOrden());
+
+        messi.mostrarPuntos(30);  
+        ronaldo.mostrarPuntos(30);
+    }
+}
 ```

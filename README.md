@@ -2,7 +2,7 @@
 ## Agustin Aron version
 
 ## ️🛠 Arquitectura de Software:
-¿Podes describir un tipo de arquitectura de software que hayas utilizado en algún proyecto? ¿Cómo contribuyó esta arquitectura a cumplir con los requisitos del sistema? Incluí diagrama simple (puede ser texto ASCII) y 1 trade-off de esta arquitectura.
+### ¿Podes describir un tipo de arquitectura de software que hayas utilizado en algún proyecto? ¿Cómo contribuyó esta arquitectura a cumplir con los requisitos del sistema? Incluí diagrama simple (puede ser texto ASCII) y 1 trade-off de esta arquitectura.
 
 En un proyecto realizado para el Trabajo Práctico Integrador de la asignatura Backend de Aplicaciones (dictada en JAVA), implementé una arquitectura de microservicios con una API Gateway central que centralizaba, redireccionaba y autenticaba las peticiones, y dos servicios (Pruebas y Reportes).
 
@@ -20,8 +20,7 @@ Si bien se ganó escalabilidad y mantenibilidad modular, se aumentó a cambio la
 
 
 ## ⚠ Manejo de Errores y Excepciones:
-¿Cómo gestionas el manejo de errores y excepciones en tus proyectos? Proporciona un
-ejemplo de cómo este enfoque mejoró la robustez de una aplicación.
+### ¿Cómo gestionas el manejo de errores y excepciones en tus proyectos? Proporciona un ejemplo de cómo este enfoque mejoró la robustez de una aplicación.
 
 Suelo utilizar en mis proyectos bloques de tipo try-catch, el primero contiene el código que al ejecutarse podría generar algún error, y el segundo contiene la forma de actúar ante ese error o excepción.
 
@@ -103,9 +102,7 @@ def registrar(
 ```
 
 ## 🌐Patrones de Diseño:
-¿Podrías mencionar y describir brevemente dos patrones de diseño de software que
-hayas utilizado en tus proyectos? ¿Cómo contribuyeron estos patrones a la eficiencia o
-mantenibilidad del código?
+### ¿Podrías mencionar y describir brevemente dos patrones de diseño de software que hayas utilizado en tus proyectos? ¿Cómo contribuyeron estos patrones a la eficiencia o mantenibilidad del código?
 
 En el Trabajo Práctico recién mencionado, utilicé el patrón singleton para asegurar el acceso a una única instancia de base de datos y para las interfaces gráficas que mostraban cada módulo, este patrón ayudó a lograr clase cohesivas, con responsabilidades simples y claras.
 
@@ -114,9 +111,7 @@ También el utilicé el patrón Factory para la creación de los distintos tipos
 Además de estos patrones estructurales, conozco patrones de comportamiento como pueden ser Strategy o State, que favorecen la delegación de responsabilidades y el bajo acoplamiento de las clases del sistema.
 
 ## ️ Interfaces en Programación:
-Explícanos qué es una interfaz en programación y proporciona un ejemplo de cómo y
-cuándo usarías una en un proyecto. Mostrá una firma de interfaz (código breve) y un
-caso de sustitución.
+### Explícanos qué es una interfaz en programación y proporciona un ejemplo de cómo y cuándo usarías una en un proyecto. Mostrá una firma de interfaz (código breve) y un caso de sustitución.
 
 Una interfaz funciona a modo de contrato, establece (sin dar implementación) el conjunto de métodos que una clase debe implementar para realizarla. Con ella garantizamos que estas clases "realizadoras" de la interfaz compartan cierta funcionalidad(pudiendo implementarlas de distinto modo internamente), permitiendo el polimorfismo en función de las solicitudes concretas que tenga la interfaz en tiempo de ejecución.
 Ayudan a desacoplar el código y que sea más simple de mantener.
@@ -140,7 +135,7 @@ public interface CalculadorPuntos {
     double calcularPuntos(int goles);
 }
 ```
-Y sus implementaciones:
+Sus implementaciones:
 ``` Java
 public class LigaPrimerOrden implements CalculadorPuntos {
     @Override
@@ -187,3 +182,34 @@ public class Jugador {
     }
 }
 ```
+
+## 🌟 Buenas Prácticas de Programación:
+### ¿Cuáles consideras que son tres buenas prácticas esenciales en el desarrollo de software y cómo las has aplicado en tus proyectos anteriores? Nombrá 3 y contá 1 ejemplo concreto por cada una.
+
+Apoyándome un poco en lo que ya vengo contándoles, creo que tanto el uso de Patrones de Diseño como el Manejo de Errores y Excepciones con buenas prácticas, a las que voy a sumarles escribir código limpio y legible, el uso de algoritmos eficientes y hacer Gestión de Configuración de Software.
+
+Ya que dí ejemplos de Patrones de Diseño y Manejo de Errores y Excepciones anteriormente, voy a enforcarme en las otras tres buenas prácticas que mencioné:
+
+- Escribir código limpio y legible:
+Consiste en mantener una estructura organizada de código, usar comentarios sólo en forma necesaria y mientras sirva para mejorar el entendimiento, y seguir nomenclaturas para variables y funciones.
+Por ejemplo: cameCase para variables y snake_case para funciones.
+He aplicado y practicado esto a lo largo de mi carrera en múltiples proyectos y trabajos prácticos donde se requería programar.
+
+- Uso de algoritmos eficientes:
+Consiste en elegir estructuras de datos y algoritmos que favorezcan disminuir el tiempo de ejecución y el consumo de memoria, volviendo el sistema más escalable a futuro y más resiliente a sobrecargas de solicitudes.
+Por ejemplo, en la materia Algoritmos y Estructuras de Datos, usaba inserciones o búsquedas binarias en lugar de lineales.
+
+- Uso de Gestión de Configuración de Software:
+Implica mantener el proyecto organizado utilizando herramientas de gestión de cambios como Git, con nomenclaturas, estructura del repositorio y criterio de línea establecidos previamente.
+Esto permite garantizar la trazabilidad de un producto, identificar versiones estables y volver a ellas en caso de ser necesario.
+Por ejemplo, en la asignatura Ingeniería y Calidad de Software, mantuve junto a mi grupo un repositorio que contenía Trabajos Prácticos y Conceptuales, material de estudio, notas de clase, etc.
+
+## 🔍 Uso de Git y Branching
+### Háblanos sobre una estrategia de branching que hayas utilizado en tus proyectos. ¿Por qué elegiste esa estrategia y cómo ayudó al flujo de trabajo del equipo?
+
+En proyectos con compañeros, hemos utilizado Branching individual, en donde se creaba una rama main y una rama por persona, estableciendo un encargado de revisar los Pull Request y responsabilidades claras sobre lo que cada uno debía programar.
+Elegimos esa estrategia debido a que teníamos distintos tiempos para brindarle al desarollo del proyecto y necesitábamos un espacio de desarrollo individual, esto ayudó a poder codear cada uno en sus tiempos libres y a no pisarnos ni generar merge conflicts (modificando varias personas el mismo fragmento de código).
+
+## 📝Pruebas de Software:
+### ¿Qué tipos de pruebas de software conocés y cuál ha sido tu experiencia implementándolas?
+

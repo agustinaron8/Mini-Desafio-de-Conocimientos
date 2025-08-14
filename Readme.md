@@ -200,7 +200,7 @@ Consiste en elegir estructuras de datos y algoritmos que favorezcan disminuir el
 Por ejemplo, en la materia Algoritmos y Estructuras de Datos, usaba inserciones o búsquedas binarias en lugar de lineales.
 
 - Uso de Gestión de Configuración de Software:
-Implica mantener el proyecto organizado utilizando herramientas de gestión de cambios como Git, con nomenclaturas, estructura del repositorio y criterio de línea establecidos previamente.
+Implica mantener el proyecto organizado utilizando herramientas de gestión de cambios como Git, con nomenclaturas, estructura del repositorio y criterio de línea base establecidos previamente.
 Esto permite garantizar la trazabilidad de un producto, identificar versiones estables y volver a ellas en caso de ser necesario.
 Por ejemplo, en la asignatura Ingeniería y Calidad de Software, mantuve junto a mi grupo un repositorio que contenía Trabajos Prácticos y Conceptuales, material de estudio, notas de clase, etc.
 

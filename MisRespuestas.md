@@ -213,3 +213,24 @@ Elegimos esa estrategia debido a que teníamos distintos tiempos para brindarle 
 ## 📝Pruebas de Software:
 ### ¿Qué tipos de pruebas de software conocés y cuál ha sido tu experiencia implementándolas?
 
+Los tipos de pruebas pueden dividirse:
+- Según el nivel:
+Unitarias: Prueban funciones o clases individuales.
+De Integración: Se usan para probar más de un módulo a la vez y verificar que trabajen bien juntos.
+De Sistema: Prueban el total del sistema, suelen darse en un entorno que simule al entorno real.
+De Aceptación: Se realizan frente al cliente o usuario final para verificar que se cumplen sus requerimientos
+
+- Según el objetivo:
+Funcionales: Prueban que el software haga lo que tiene que hacer en términos de funcionalidad.
+No funcionales: Evalúan aspectos como rendimiento, escalabilidad, seguridad y usabilidad.
+
+- Según el modo de ejecución:
+Manuales: Las ejecuta un humano, generalmente siguiendo un caso de prueba.
+Automatizadas: Se ejecutan por scripts o alguna herramienta de testing, algunas veces forman parte de un pipeline como uno de sus pasos.
+
+- Según el enfoque:
+De caja negra: No se conoce su código o proceso interno, evalúa entradas y salidas.
+De caja blanca: Se centra en la cobertura del código, se prueban las rutas y se revisan las condiciones y bucles.
+
+En mi experiencia, realicé Casos de Prueba para la materia Ingenieria y Calidad de Software para poder documentar bugs y que sean reproducibles.
+Por otro lado, jugué un poco hace tiempo con Jenkins para realizar Pipelines que corran pruebas automatizadas previo a un merge en GitHub.

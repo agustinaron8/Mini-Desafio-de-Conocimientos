@@ -275,3 +275,11 @@ Para los reportes transaccionales, que necesitan consistencia e integridad, usar
 Entonces, de ser posible usaría un esquema híbrido:
 - NoSQL para logs de eventos.
 - SQL para reportes transaccionales.
+
+## ➿Bugs
+### Contanos sobre un bug difícil: cómo lo reprodujiste, qué hipótesis probaste y cómo confirmaste la causa raíz.
+En la materia Ingeniería y Calidad de Software,luego de desarrollar una User Story, tuve que testear junto a mi grupo la User Story desarrollada por otros compañeros.
+Ejecutando el primer caso de prueba, que consistiía en publicar un pedido con parámetros mínimos, me encontré un bug bloqueante, ya que no podía concluir un pedido tras confirmarlo y seguir usando la aplicación.
+Mi hipótesis fue que, al confirmar el pedido, se actualizaba su estado internamente pero no se disparaba el redireccionamiento a la pantalla de inicio.
+Para reproducirlo, volví a abrir la aplicación, a cargar todos los parámetros mínimos para publicar el pedido, realizando los mismos pasos documentados en el caso de prueba.
+Confirmé la hipótesis con una funcionalidad de consulta, los pedidos se publicaban, pero quedaba bloqueado el uso de la aplicación y sólo se podía reiniciarla para volverla a usar.

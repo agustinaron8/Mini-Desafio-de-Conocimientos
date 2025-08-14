@@ -234,3 +234,20 @@ De caja blanca: Se centra en la cobertura del código, se prueban las rutas y se
 
 En mi experiencia, realicé Casos de Prueba para la materia Ingenieria y Calidad de Software para poder documentar bugs y que sean reproducibles.
 Por otro lado, jugué un poco hace tiempo con Jenkins para realizar Pipelines que corran pruebas automatizadas previo a un merge en GitHub.
+
+## ✅ Principios SOLID:
+### ¿Estás familiarizado con los principios SOLID de la programación orientada a objetos? Si es así, elegí uno y describe cómo lo aplicaste en un proyecto real. Elegí 1 principio y pegá 6–10 líneas de código que lo muestren.
+Si! Conozco los principios SOLID de programación, voy a hablar sobre el principio Open/Closed, que indica que una clase tiene que estar abierta para la extensión, pero cerrada para la modificación.
+Por ejemplo, en el proyecto de gestión de librería ya mencionado, cuando apliqué este patrón al aplicar el patrón Factory para los usuarios, existiendo inicialmente Profesor y Estudiante, pero pudiendo existir a futuro otro tipo de usuario.
+Realizo un ejemplo breve y reducido a continuación:
+``` Python
+class Usuario:
+    def __init__(self, id, nombre):
+        self.id = id
+        self.nombre = nombre
+    
+class NoDocente(Usuario):
+    def __init__(self, id, nombre, tipoUsuario="NoDocente"):
+        super()._init_(id, nombre)
+        self.tipoUsuario = tipoUsuario
+```

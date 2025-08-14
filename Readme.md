@@ -106,7 +106,7 @@ def registrar(
 
 En el Trabajo Práctico recién mencionado, utilicé el patrón singleton para asegurar el acceso a una única instancia de base de datos y para las interfaces gráficas que mostraban cada módulo, este patrón ayudó a lograr clase cohesivas, con responsabilidades simples y claras.
 
-También el utilicé el patrón Factory para la creación de los distintos tipos de usuario (alumno y profesor), que contenían características comunes, permitiendo la extensión futura de distintos tipos de usuarios escalando horizontalmente a la altura de las subclases actuales Profesor y Estudiante, reutilizando el código de la clase plantilla Usuario.
+También utilicé el patrón Factory para la creación de los distintos tipos de usuario (alumno y profesor), que contenían características comunes, permitiendo la extensión futura de distintos tipos de usuarios escalando horizontalmente a la altura de las subclases actuales Profesor y Estudiante, reutilizando el código de la clase plantilla Usuario.
 
 Además de estos patrones estructurales, conozco patrones de comportamiento como pueden ser Strategy o State, que favorecen la delegación de responsabilidades y el bajo acoplamiento de las clases del sistema.
 

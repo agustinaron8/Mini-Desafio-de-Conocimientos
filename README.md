@@ -28,7 +28,7 @@ Suelo utilizar en mis proyectos bloques de tipo try-catch, el primero contiene e
 Por ejemplo, para la asignatura Diseño de Aplicaciones con Objetos (Python), el Trabajo Práctico Integrador constaba de desarrollar un sistema de gestión para una librería: En su módulo de gestión de préstamos, cada operación sobre la base de datos (registrar un préstamo o devolución, calcular un interes por demora) estaba inserta dentro de un bloque try-except en este caso, ya que Python provee esa sintaxis.
 Este manejo de excepciones mejora la robustez ya que vuelve a la aplicación resiliente ante fallos, permitiendo que siga operando, por ejemplo, si al registrar un préstamo, por algún motivo no se encontraba el libro en la base de datos o había un error con la cantidad de ejemplares disponibles, el sistema revertía los cambios (rollback) y notificaba el problema sin realizar modificaciones indebidas en el stock. 
 
-<pre> ```python
+```python
 def registrar(
         self,
         usuario_id,
@@ -97,4 +97,5 @@ def registrar(
         except Exception as e:
             print(f"Error al registrar el préstamo: {e}")
             self.db.get_connection().rollback()
-            return False ```</pre>
+            return False
+```
